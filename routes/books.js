@@ -51,13 +51,14 @@ router.put('/:id', async (req, res) => {
             title: req.body.title,
             author: req.body.author,
             description: req.body.description,
-            rating: req.body.rating
+            rating: parseInt(req.body.rating)
         }
 
-        let updatedBook = await Book.findOneAndUpdate(req.params.id, update, {new: true});
+        let updatedBook = await Book.findOneAndUpdate({_id: req.params.id }, update, {new: true});
+        console.log(updatedBook);
         if (!updatedBook) throw Error('Error updating the book');
-
-        res.status(200).json({ success: true })
+        
+        res.status(200).json(updatedBook);
     } catch (e) {
         res.status(400).json({ msg: e.message, success: false });
     }
