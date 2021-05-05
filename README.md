@@ -1,9 +1,9 @@
 # Library
 
 In order to run the aplication execute the following commands:
-
-node server.js
-cd client
-npm start
+</br>
+node server.js</br>
+cd client</br>
+npm start</br>
 
 A simple personal library project
